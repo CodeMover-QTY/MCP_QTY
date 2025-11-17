@@ -1,0 +1,33 @@
+{
+  "name": "mcp_qty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node --esm src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeMover-QTY/MCP_QTY.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeMover-QTY/MCP_QTY/issues"
+  },
+  "homepage": "https://github.com/CodeMover-QTY/MCP_QTY#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "@octokit/rest": "^22.0.1",
+    "axios": "^1.13.2"
+  }
+}
