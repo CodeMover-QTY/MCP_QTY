@@ -1,72 +1,55 @@
-# GitHub MCP Server
+# MCP_QTY - Model Context Protocol Servers Collection
 
-这是一个基于 Model Context Protocol (MCP) 的 GitHub 服务器，可以让 AI 助手（如 Claude Desktop）直接访问 GitHub API。
+这是一个 MCP (Model Context Protocol) 服务器集合项目，包含多个独立的 MCP 服务。
 
-## 功能
+## 📁 项目结构
 
-提供以下工具：
-
-1. **search_issues** - 搜索 GitHub Issues 和 Pull Requests
-2. **get_repository** - 获取仓库信息
-3. **list_pull_requests** - 列出仓库的 Pull Requests
-
-## 安装
-
-```powershell
-npm install
+```
+MCP_QTY/
+├── github-mcp/          # GitHub API MCP Server
+│   ├── src/            
+│   ├── dist/           
+│   ├── package.json    
+│   └── README.md       
+├── filesystem-mcp/      # 文件系统 MCP Server (待添加)
+├── database-mcp/        # 数据库 MCP Server (待添加)
+└── README.md           # 本文件
 ```
 
-## 配置
+## 🚀 已部署的 MCP Servers
 
-设置 GitHub Personal Access Token：
+### 1. GitHub MCP (`github-mcp/`)
+- **功能**: GitHub API 集成
+- **工具**: 
+  - `search_issues` - 搜索 Issues 和 PRs
+  - `get_repository` - 获取仓库信息
+  - `list_pull_requests` - 列出 Pull Requests
+- **状态**: ✅ 已部署
 
-```powershell
-setx GITHUB_TOKEN "你的GitHub令牌"
-```
+## 📝 添加新的 MCP Server
 
-然后重新打开 PowerShell。
+每个 MCP Server 都应该是独立的子文件夹，包含：
+- `src/` - 源代码
+- `dist/` - 编译输出
+- `package.json` - 依赖配置
+- `tsconfig.json` - TypeScript 配置
+- `README.md` - 服务说明
 
-## 本地测试
+## ⚙️ VS Code 配置
 
-```powershell
-npm run dev
-```
+所有 MCP Server 的配置位于：
+- `%APPDATA%\Code\User\settings.json`
 
-## 在 Claude Desktop 中使用
+当前配置的服务器会自动显示在 VS Code 的 Copilot MCP 和 MCP Servers 面板中。
 
-1. 打开 Claude Desktop 配置文件：
-   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+## 🔧 开发指南
 
-2. 添加此 MCP 服务器：
+1. 在 `MCP_QTY/` 下创建新的 MCP 文件夹
+2. 按照标准结构初始化项目
+3. 在 `settings.json` 中添加配置
+4. 重新加载 VS Code 窗口
 
-```json
-{
-  "mcpServers": {
-    "github": {
-      "command": "node",
-      "args": ["D:\\User7\\Github\\MCP_QTY\\dist\\index.js"],
-      "env": {
-        "GITHUB_TOKEN": "你的GitHub令牌"
-      }
-    }
-  }
-}
-```
+## 📚 相关资源
 
-3. 先构建项目：
-
-```powershell
-npm run build
-```
-
-4. 重启 Claude Desktop
-
-## 使用示例
-
-在 Claude Desktop 中，你可以这样问：
-
-- "搜索 Microsoft/vscode 仓库中标签为 bug 的 open issues"
-- "获取 facebook/react 仓库的信息"
-- "列出 vercel/next.js 的最新 Pull Requests"
-
-Claude 会自动调用相应的工具来获取信息。
+- [Model Context Protocol 官方文档](https://modelcontextprotocol.io/)
+- [MCP Servers 官方仓库](https://github.com/modelcontextprotocol/servers)
